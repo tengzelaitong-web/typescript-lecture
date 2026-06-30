@@ -1,13 +1,14 @@
-import { Mage } from "./mage";
 import { Warrior } from "./warrior";
-import { Character } from "./character.ts"
-
-// const character = new Character("太郎", 200); // abstract class はインスタンス化出来ないのでエラーが出る
+import { Mage } from "./mage";
 
 const warrior = new Warrior("アーサー", 100, "エクスカリバー");
-warrior.showStatus();
-warrior.attack();
-
 const mage = new Mage("メディア", 80);
+
+warrior.showStatus();
 mage.showStatus();
-mage.attack();
+
+warrior.attack(mage);
+mage.attack(warrior);
+
+warrior.showStatus();
+mage.showStatus();

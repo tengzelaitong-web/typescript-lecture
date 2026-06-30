@@ -1,21 +1,25 @@
 export abstract class Character {
   protected name: string;
-  private hp: number;
+  protected hp: number;
 
   constructor(name: string, hp: number) {
     this.name = name;
     this.hp = hp;
   }
 
-  showStatus() {
+  showStatus(): void {
     console.log(`${this.name}: HP ${this.hp}`);
   }
 
-  takeDamage(damage: number): void {
+  public takeDamage(damage: number): void {
     this.hp -= damage;
+
+    if (this.hp < 0) {
+      this.hp = 0;
+    }
   }
 
-  isDead(): boolean {
+  public isDead(): boolean {
     return this.hp <= 0;
   }
 
